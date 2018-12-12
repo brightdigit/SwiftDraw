@@ -174,6 +174,8 @@
 		D965B5871E3C5CF8003E859E /* starry.svg in Resources */ = {isa = PBXBuildFile; fileRef = D965B5851E3C5C87003E859E /* starry.svg */; };
 		D9778E5B1E6ED66300FF6EBB /* starry.svg in Resources */ = {isa = PBXBuildFile; fileRef = D965B5851E3C5C87003E859E /* starry.svg */; };
 		D9778E5C1E6ED66300FF6EBB /* shapes.svg in Resources */ = {isa = PBXBuildFile; fileRef = D965B5811E3C48C6003E859E /* shapes.svg */; };
+		D97AD81721BE3B4500F7DD10 /* Renderer.Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97AD81621BE3B4500F7DD10 /* Renderer.Code.swift */; };
+		D97AD81821BE3B4500F7DD10 /* Renderer.Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97AD81621BE3B4500F7DD10 /* Renderer.Code.swift */; };
 		D97AD81A21BE40A700F7DD10 /* Parser.XML.GradientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97AD81921BE40A700F7DD10 /* Parser.XML.GradientTests.swift */; };
 		D97AD81B21BE40A700F7DD10 /* Parser.XML.GradientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97AD81921BE40A700F7DD10 /* Parser.XML.GradientTests.swift */; };
 		D9A843931E85F1C1002A804B /* quad.svg in Resources */ = {isa = PBXBuildFile; fileRef = D9A843921E85F1C1002A804B /* quad.svg */; };
@@ -327,6 +329,7 @@
 		D962D2A11E6ECE2000B825C6 /* SwiftDraw-macOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SwiftDraw-macOS.h"; sourceTree = "<group>"; };
 		D965B5811E3C48C6003E859E /* shapes.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = shapes.svg; sourceTree = "<group>"; };
 		D965B5851E3C5C87003E859E /* starry.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = starry.svg; sourceTree = "<group>"; };
+		D97AD81621BE3B4500F7DD10 /* Renderer.Code.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.Code.swift; sourceTree = "<group>"; };
 		D97AD81921BE40A700F7DD10 /* Parser.XML.GradientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.XML.GradientTests.swift; sourceTree = "<group>"; };
 		D9A843901E855672002A804B /* curves.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = curves.svg; sourceTree = "<group>"; };
 		D9A843921E85F1C1002A804B /* quad.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = quad.svg; sourceTree = "<group>"; };
@@ -411,6 +414,7 @@
 			isa = PBXGroup;
 			children = (
 				D90DB39F219CCBBD00D374D2 /* Renderer.LayerTree.swift */,
+				D97AD81621BE3B4500F7DD10 /* Renderer.Code.swift */,
 				D90DB39D219CCBBD00D374D2 /* Renderer.CoreGraphics.swift */,
 				D90DB39E219CCBBD00D374D2 /* Renderer.swift */,
 			);
@@ -998,6 +1002,7 @@
 				D90DB3DA219CCCDA00D374D2 /* LayerTree.Builder.Path.swift in Sources */,
 				D90DB3C2219CCC4500D374D2 /* Renderer.CoreGraphics.swift in Sources */,
 				D90DB3B1219CCC4100D374D2 /* LayerTree.Transform.swift in Sources */,
+				D97AD81821BE3B4500F7DD10 /* Renderer.Code.swift in Sources */,
 				D90DB44F219CD27800D374D2 /* Parser.XML.swift in Sources */,
 				D90DB453219CD27800D374D2 /* Parser.XML.Path.swift in Sources */,
 				D90DB457219CD27800D374D2 /* Parser.XML.Attributes.swift in Sources */,
@@ -1105,6 +1110,7 @@
 				D925CC6121A49C9C00C8897B /* LayerTree.Builder.Shape.swift in Sources */,
 				D90DB3DB219CCCDB00D374D2 /* LayerTree.Builder.Path.swift in Sources */,
 				D90DB3B8219CCC4100D374D2 /* LayerTree.Layer.swift in Sources */,
+				D97AD81721BE3B4500F7DD10 /* Renderer.Code.swift in Sources */,
 				D90DB3BE219CCC4100D374D2 /* LayerTree.Image.swift in Sources */,
 				D90DB3A1219CCBBD00D374D2 /* Renderer.swift in Sources */,
 				D90DB44E219CD27800D374D2 /* Parser.XML.swift in Sources */,
