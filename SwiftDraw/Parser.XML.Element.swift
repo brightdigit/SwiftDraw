@@ -98,6 +98,8 @@ extension XMLParser {
     default: return nil
     }
     
+    
+    ge.xHref = e.attributes["xlink:href"].flatMap(DOM.Href.init)
     ge.id = e.attributes["id"]
     
     let presentation = try parsePresentationAttributes(att)

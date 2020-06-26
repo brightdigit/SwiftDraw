@@ -57,7 +57,30 @@ protocol PresentationAttributes {
 
 extension DOM {
   
-  class Element {}
+  class Element {
+    var xHref: Href?    
+  }
+  
+  enum Href {
+    case id (String)
+    
+    init?(attributeValue: String) {
+      guard attributeValue.hasPrefix("#") && attributeValue.count > 1 else {
+        return nil
+      }
+      
+      let idValue = String(attributeValue[attributeValue.index(after: attributeValue.startIndex)...])
+      self = .id(idValue)
+    }
+    
+    var idValue : String? {
+      switch self {
+      case .id(let value):
+        return value
+      }
+    }
+  }
+  
   
   class GraphicsElement: Element, PresentationAttributes {
     var id: String?

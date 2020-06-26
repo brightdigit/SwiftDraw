@@ -178,7 +178,8 @@ extension LayerTree.Builder {
       return LayerTree.FillAttributes(pattern: pattern, rule: state.fillRule, opacity: state.fillOpacity)
     } else if case .url(let gradientId) = state.fill,
       let element = svg.defs.linearGradients.first(where: { $0.id == gradientId.fragment }) {
-      let gradient = makeGradient(for: element)!
+        let refElement = element.xHref?.idValue.flatMap{ id in svg.defs.linearGradients.first{ $0.id == id }}
+      let gradient = makeGradient(for: element, with: refElement)!
       return LayerTree.FillAttributes(gradient: gradient, rule: state.fillRule, opacity: state.fillOpacity)
     } else {
       return LayerTree.FillAttributes(color: fill, rule: state.fillRule)
@@ -196,7 +197,7 @@ extension LayerTree.Builder {
     return pattern
   }
 
-  func makeGradient(for element: DOM.LinearGradient) -> LayerTree.Gradient? {
+  func makeGradient(for element: DOM.LinearGradient, with reference: DOM.LinearGradient?) -> LayerTree.Gradient? {
     guard
       let x1 = element.x1,
       let y1 = element.y1,
@@ -206,7 +207,8 @@ extension LayerTree.Builder {
     }
 
     let gradient = LayerTree.Gradient(start: Point(x1, y1), end: Point(x2, y2))
-    gradient.stops = element.stops.map {
+    let other = reference ?? element
+    gradient.stops = other.stops.map {
       return LayerTree.Gradient.Stop(offset: $0.offset,
                                      color: LayerTree.Color($0.color),
                                      opacity: $0.opacity)

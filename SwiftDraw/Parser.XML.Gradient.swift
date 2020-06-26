@@ -56,6 +56,10 @@ extension XMLParser {
     node.x2 = try nodeAtt.parseCoordinate("x2")
     node.y2 = try nodeAtt.parseCoordinate("y2")
     
+    if let refIdString = try nodeAtt.parseString("xlink:href") {
+      node.xHref = DOM.Href(attributeValue: refIdString)
+    }
+    
     for n in e.children where n.name == "stop" {
       let att: AttributeParser = try parseAttributes(n)
       node.stops.append(try parseLinearGradientStop(att))
