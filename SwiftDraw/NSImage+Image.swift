@@ -29,12 +29,13 @@
 //  3. This notice may not be removed or altered from any source distribution.
 //
 
+#if os(macOS)
 import AppKit
 import CoreGraphics
 
 public extension NSImage {
   convenience init?(svgNamed name: String, in bundle: Bundle = Bundle.main) {
-    guard let image = Image(named: name, in: bundle) else { return nil }
+    guard let image = try? Image(named: name, in: bundle) else { return nil }
 
     self.init(size: image.size, flipped: true) { rect in
       guard let ctx = NSGraphicsContext.current?.cgContext else { return false }
@@ -109,3 +110,4 @@ public extension Image {
     return bitmap.representation(using: .jpeg, properties: [NSBitmapImageRep.PropertyKey.compressionFactor: quality])
   }
 }
+#endif
