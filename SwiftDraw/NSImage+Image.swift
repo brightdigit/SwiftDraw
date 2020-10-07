@@ -90,11 +90,11 @@ public extension Image {
     let rect = CGRect(x: 0, y: 0, width: CGFloat(bitmap.pixelsWide), height: CGFloat(bitmap.pixelsHigh))
     let flip = CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: rect.size.height)
     var properties = [NSBitmapImageRep.PropertyKey : Any]()
-//    if let color = backgroundColor {
-//      ctx.setFillColor(color.cgColor)
-//      ctx.fill(rect)
-//      properties[.fallbackBackgroundColor] = color
-//    }
+    if let color = backgroundColor {
+      ctx.setFillColor(color.cgColor)
+      ctx.fill(rect)
+      properties[.fallbackBackgroundColor] = color
+    }
     ctx.concatenate(flip)
     ctx.draw(self, in: rect)
 
