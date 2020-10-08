@@ -32,6 +32,7 @@
 import Foundation
 
 #if canImport(CoreGraphics)
+import CoreGraphics
 
 @objc(SVGImage)
 public final class Image: NSObject {
@@ -96,19 +97,17 @@ extension DOM.SVG {
 
 public extension Image {
 
-  convenience init?(fileURL url: URL) {
-    guard let svg = try? DOM.SVG.parse(fileURL: url) else {
-      return nil
-    }
+  convenience init(fileURL url: URL) throws {
+     let svg = try DOM.SVG.parse(fileURL: url)
 
     self.init(svg: svg)
   }
 
-  convenience init?(named name: String, in bundle: Bundle = Bundle.main) {
+  convenience init(named name: String, in bundle: Bundle = Bundle.main) throws {
     guard let url = bundle.url(forResource: name, withExtension: nil) else {
-      return nil
+      throw URLError.init(URLError.Code.fileDoesNotExist)
     }
 
-    self.init(fileURL: url)
+    try self.init(fileURL: url)
   }
 }
